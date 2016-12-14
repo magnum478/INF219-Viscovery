@@ -1,0 +1,26 @@
+{
+  "name": "ViscoveryServer",
+  "description": "Server side for the chrome extension Viscovery",
+  "version": "0.0.1",
+  "private": true,
+  "license": "Apache Version 2.0",
+  "author": "Magnus Erga",
+  "engines": {
+    "node": "~4.2"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "monitor": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "latest",
+    "socket.io": "latest",
+    "phantomjs-prebuilt": "latest",
+    "cors": "latest",
+    "body-parser": "latest",
+    "request": "latest",
+    "cheerio": "latest",
+    "stopword": "latest",
+    "html-to-text": "latest"
+  }
+}
