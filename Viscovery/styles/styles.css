@@ -1,0 +1,12 @@
+.barChart {
+  font: 10px sans-serif;
+  text-align: right;
+  box-shadow:1px 1px 3px black;
+  padding: 3px;
+  margin: 1px;
+  color: black;
+  position: absolute;
+  width: 140px;
+  height: 10px;
+  z-index: 999999;
+}

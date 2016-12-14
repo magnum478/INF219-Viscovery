@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Settings</title>
+
+    <!-- Bootstrap -->
+    <link href="../styles/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body style="width:320px;height:100px;background-image:url('../images/background.png')">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <h4>Majority Report</h4>
+            <div class="form-group">
+              <label for="sel1">Select number of pages to visualize:</label>
+              <select class="form-control" id="selectionNumPages">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+            <div class="btn-group" role="group" aria-label="...">
+            <button class="btn btn-default" type="button" id="btnScreenshot">Visualize</button>
+            <br/> <br/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../scripts/external/bootstrap.min.js"></script>
+    <script src="../scripts/external/jquery-3.1.0.min.js"></script>
+    <script src="../scripts/extension/settings.js"></script>
+  </body>
+</html>

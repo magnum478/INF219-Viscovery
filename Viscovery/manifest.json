@@ -1,0 +1,30 @@
+﻿{
+  "manifest_version": 2,
+
+  "name": "Viscovery",
+  "description": "Insert viscovery inscription here",
+  "version": "1.0",
+   "background": {
+      "scripts": [ "scripts/external/jquery-3.1.0.min.js", "scripts/external/socket.io.js", "scripts/extension/background.js", "scripts/PageManager.js"],
+      "persistent" :  true
+    },
+  "browser_action": {
+    "default_icon": "images/star.png",
+    "default_popup": "html/settings.html"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "<all_urls>",
+    "http://localhost:8080/*"
+  ],
+  "content_scripts": [
+    {
+      "css": ["styles/styles.css"],
+      "matches": [ "*://www.google.com/*", "*://www.google.no/*" ],
+      "js": [ "scripts/external/jquery-3.1.0.min.js", "scripts/external/gl-matrix-min.js", "scripts/external/d3.min.js", "scripts/external/webgl-debug.js", 
+              "scripts/external/J3DI.js", "scripts/external/webgl-utils.js", "scripts/extension/googlePageContentScript.js",
+              "scripts/visualization/Shaders.js", "scripts/visualization/Camera.js", "scripts/visualization/InputHandler.js", "scripts/visualization/WindowManager.js"]
+    }
+  ]
+}
