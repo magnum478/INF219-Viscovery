@@ -63,6 +63,8 @@ function scaleOriginalResultArea() {
   var scale = 0.5;
   var startLeft = $("#rcnt")[0].getBoundingClientRect().right * scale;
   $("#rcnt").css({ "zoom": scale});
+  $("#fbar").css({ "visibility": "hidden"});
+  $("#swml").css({ "visibility": "hidden"});
   $("#"+name).css({ top: '150px', left: startLeft, position: "absolute" });
 }  
 
