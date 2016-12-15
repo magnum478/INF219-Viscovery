@@ -693,10 +693,7 @@ class WindowLayout
             this.focusedWindow = window;
             this.wManager.gl.bindBuffer(this.wManager.gl.ARRAY_BUFFER, this.wManager.frontBoxBuffer);
             this.wManager.gl.vertexAttribPointer(0, this.wManager.frontBoxBuffer.itemSize, gl.FLOAT, false, 0, 0);
-            this.wManager.program.start();
-            //this.wManager.program.bindAttribute(0, "a_vertexPosition");
-            //this.wManager.program.stop();
-            //this.wManager.gl.bindBuffer(this.wManager.gl.ARRAY_BUFFER, null);
+            this.wManager.gl.bindBuffer(this.wManager.gl.ARRAY_BUFFER, null);
         }
     }
 
@@ -713,9 +710,6 @@ class WindowLayout
             this.wManager.gl.bindBuffer(this.wManager.gl.ARRAY_BUFFER, this.wManager.windowVertexPositionBuffer);
             this.wManager.gl.vertexAttribPointer(0, this.wManager.windowVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
             this.wManager.gl.bindBuffer(this.wManager.gl.ARRAY_BUFFER, null);
-            //this.wManager.program.start();
-            //this.wManager.program.bindAttribute(0, "a_vertexPosition");
-            //this.wManager.program.stop();
             this.init();
         }
     }
