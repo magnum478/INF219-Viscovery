@@ -33,6 +33,10 @@ The extension will load when the user navigates to the google search page, which
 ## Notes
 The settings field is only a placeholder atm.
 
+Inspection view is triggered by hovering over the links on the left side, or left clicking an image on the right side.
+
+To open the url the image is representing, shift-click the image.
+
 ## Image gallery
 ##### Juxta positioning
 ![Alt text](/Readme_Images/displayJuxta.png?raw=true "Juxta positioning")
