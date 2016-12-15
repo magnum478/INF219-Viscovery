@@ -11,7 +11,7 @@ npm install
 ```
 to install all the dependencies/packages.
 
-When all dependencies are installed run
+When all dependencies are installed, run
 ```
 npm start
 ```
@@ -26,4 +26,8 @@ chrome://extensions
 ```
 and enable developer mode.
 
-Then load the Viscovery folder as an unpacked extension.
+Load the Viscovery folder as an unpacked extension.
+
+## Notes
+The settings field is only a placeholder atm.
+
