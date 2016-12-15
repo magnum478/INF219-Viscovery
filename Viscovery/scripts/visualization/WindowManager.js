@@ -101,6 +101,30 @@ class WindowManager
     }
 
 
+    initFrontBoxBuffer(gl)
+    {
+        this.frontBoxBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, this.frontBoxBuffer);
+        var frontWindowDim = 
+        {
+            width: 1000,
+            height:800
+        }
+        var frontBoxVertices = [
+             0, 0,
+             frontWindowDim.width,0,
+             0,frontWindowDim.height,
+             frontWindowDim.width,frontWindowDim.height
+        ];
+
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(frontBoxVertices), gl.STATIC_DRAW);
+
+        this.frontBoxBuffer.itemSize = 2;
+        this.frontBoxBuffer.numItems = 4;
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, null);
+    }
+
     initBlurBoxBuffer(gl)
     {
         this.blurBoxBuffer = gl.createBuffer();
@@ -186,7 +210,8 @@ class WindowManager
 
         gl.bindBuffer(gl.ARRAY_BUFFER, null);
         this.initBorderBoxBuffer(gl);
-        this.initBlurBoxBuffer(gl);
+        this.initFrontBoxBuffer(gl)
+        //this.initBlurBoxBuffer(gl);
     }
 
     drawWindows()
@@ -513,8 +538,9 @@ class WindowLayout
         this.containerPositions = [];
         this.focusedWindowContainer =
         {
-            position: vec3.fromValues(20.0, 440, -0.1),
-            scale: vec3.fromValues(4.0, 4.0, 1.0),
+            //position: vec3.fromValues(20.0, 440, -0.1),
+            position: vec3.fromValues(0.0, 440.0, -1.0),
+            scale: vec3.fromValues(1.0, 1.0, 1.0),
             focused: false,
         }
         this.focusedWindow = null;
@@ -665,6 +691,12 @@ class WindowLayout
             this.frontWindow = window;
             this.focusedWindowContainer.focused = true;
             this.focusedWindow = window;
+            this.wManager.gl.bindBuffer(this.wManager.gl.ARRAY_BUFFER, this.wManager.frontBoxBuffer);
+            this.wManager.gl.vertexAttribPointer(0, this.wManager.frontBoxBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            this.wManager.program.start();
+            //this.wManager.program.bindAttribute(0, "a_vertexPosition");
+            //this.wManager.program.stop();
+            //this.wManager.gl.bindBuffer(this.wManager.gl.ARRAY_BUFFER, null);
         }
     }
 
@@ -678,6 +710,12 @@ class WindowLayout
             this.focusedWindowContainer.focused = false;
             this.frontWindow = null;
             this.focusedWindow = null;
+            this.wManager.gl.bindBuffer(this.wManager.gl.ARRAY_BUFFER, this.wManager.windowVertexPositionBuffer);
+            this.wManager.gl.vertexAttribPointer(0, this.wManager.windowVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+            this.wManager.gl.bindBuffer(this.wManager.gl.ARRAY_BUFFER, null);
+            //this.wManager.program.start();
+            //this.wManager.program.bindAttribute(0, "a_vertexPosition");
+            //this.wManager.program.stop();
             this.init();
         }
     }
