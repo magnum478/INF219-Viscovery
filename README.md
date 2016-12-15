@@ -28,6 +28,8 @@ and enable developer mode.
 
 Load the Viscovery folder as an unpacked extension.
 
+The extension will load when the user navigates to the google search page, which it will scale and display images of the top search results.
+
 ## Notes
 The settings field is only a placeholder atm.
 
