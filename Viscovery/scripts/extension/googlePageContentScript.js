@@ -32,6 +32,7 @@ function onGooglePageLoadComplete() {
 }
 
 function getLinks() {
+  $("#swml").css({ "visibility": "hidden"});
   var rawLinks = $("h3.r a:not(.l)");
   var numberOfLinks = rawLinks.length;
   var numberOfPagesToView = numberOfLinks > maxPagesToview ? maxPagesToview : numberOfLinks;
