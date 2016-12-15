@@ -105,16 +105,16 @@ class WindowManager
     {
         this.frontBoxBuffer = gl.createBuffer();
         gl.bindBuffer(gl.ARRAY_BUFFER, this.frontBoxBuffer);
-        var frontWindowDim = 
+        var frontWindowSize = 
         {
             width: 1000,
             height:800
         }
         var frontBoxVertices = [
              0, 0,
-             frontWindowDim.width,0,
-             0,frontWindowDim.height,
-             frontWindowDim.width,frontWindowDim.height
+             frontWindowSize.width,0,
+             0,frontWindowSize.height,
+             frontWindowSize.width,frontWindowSize.height
         ];
 
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(frontBoxVertices), gl.STATIC_DRAW);
@@ -436,7 +436,7 @@ class Window
         var program = wManager.program;
         program.start();
         gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, this.textureUnmarked);
+        gl.bindTexture(gl.TEXTURE_2D, this.textureMarked);
         program.loadInt(wManager.program.location_texture, 0);
         gl.enableVertexAttribArray(1);
         gl.bindBuffer(gl.ARRAY_BUFFER, wManager.windowTextureCoordBuffer);
@@ -539,7 +539,7 @@ class WindowLayout
         this.focusedWindowContainer =
         {
             //position: vec3.fromValues(20.0, 440, -0.1),
-            position: vec3.fromValues(0.0, 440.0, -1.0),
+            position: vec3.fromValues(22.0, 224.0, -1.0),
             scale: vec3.fromValues(1.0, 1.0, 1.0),
             focused: false,
         }
