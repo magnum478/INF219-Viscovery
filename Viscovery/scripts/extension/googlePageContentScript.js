@@ -13,6 +13,7 @@ chrome.runtime.onMessage.addListener(
     switch (request.message) {
       case "image_loaded":
         if(!started) wManager.start();
+        $("#swml").css({ "visibility": "hidden"});
         wManager.loadImage(request.pageData);
         break;
     }
@@ -32,7 +33,6 @@ function onGooglePageLoadComplete() {
 }
 
 function getLinks() {
-  $("#swml").css({ "visibility": "hidden"});
   var rawLinks = $("h3.r a:not(.l)");
   var numberOfLinks = rawLinks.length;
   var numberOfPagesToView = numberOfLinks > maxPagesToview ? maxPagesToview : numberOfLinks;
