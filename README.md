@@ -33,3 +33,9 @@ The extension will load when the user navigates to the google search page, which
 ## Notes
 The settings field is only a placeholder atm.
 
+## Image gallery
+##### Juxta positioning
+![Alt text](/Readme_Images/displayJuxta.png?raw=true "Juxta positioning")
+
+##### Inspection view
+![Alt text](/Readme_Images/displayFront.png?raw=true "Front positioning")
