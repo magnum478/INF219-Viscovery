@@ -10,8 +10,8 @@ var searchQuery = args[3];
 //var scrollToText = args[4];
 var scrollTop = 0,
     scrollLeft = 0;
-var width = 1024;
-var height = 1024;
+var width = 1000;
+var height = 800;
 var zoom = 0.5;
 
 //page.zoomFactor = zoom;
