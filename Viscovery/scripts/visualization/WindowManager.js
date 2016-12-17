@@ -9,6 +9,7 @@ class WindowManager
         this.width = this.canvas.clientWidth;
         this.height = this.canvas.clientHeight;
         this.aspect = this.canvas.clientWidth/this.canvas.clientHeight;
+        this.markedPages = false;
         this.windowSize = 140.0;
         this.windowBorder = 8.0;
         this.windowContainerDimensions =
@@ -18,6 +19,11 @@ class WindowManager
             padding: 10.0
         };
         this.init();
+    }
+
+    setMarkedPages(showMarkedPages)
+    {
+        this.markedPages = showMarkedPages;
     }
 
     init()
@@ -436,7 +442,8 @@ class Window
         var program = wManager.program;
         program.start();
         gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, this.textureMarked);
+        if(wManager.markedPages) gl.bindTexture(gl.TEXTURE_2D, this.textureMarked);
+        else gl.bindTexture(gl.TEXTURE_2D, this.textureUnmarked);
         program.loadInt(wManager.program.location_texture, 0);
         gl.enableVertexAttribArray(1);
         gl.bindBuffer(gl.ARRAY_BUFFER, wManager.windowTextureCoordBuffer);
@@ -600,11 +607,11 @@ class WindowLayout
     {
         this.windows.forEach((window) => {
             if(this.frontWindow) this.hideBarCharts();
+            else this.barCharts[window.index].populateWithTFIDFScore(window.score, this.windowColorsHex[window.index]);
             if(window !== this.frontWindow)
             {
                 window.position = this.startPositions[window.index];
                 window.lightColor = this.windowColorsRGBA[window.index];
-                this.barCharts[window.index].populateWithTFIDFScore(window.score, this.windowColorsHex[window.index]);
             }
         });
         this.wManager.update = true;
@@ -716,7 +723,7 @@ class WindowLayout
 
     showBarCharts()
     {
-        this.barCharts.forEach(barChart => barChart.show());
+        if(!this.frontWindow) this.barCharts.forEach(barChart => barChart.show());
     }
 
     hideBarCharts()
