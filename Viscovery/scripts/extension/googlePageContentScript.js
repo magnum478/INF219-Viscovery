@@ -16,6 +16,11 @@ chrome.runtime.onMessage.addListener(
         $("#swml").css({ "visibility": "hidden"});
         wManager.loadImage(request.pageData);
         break;
+      
+      case "mark_checkBox_clicked":
+        if(!started) wManager.start();
+        wManager.setMarkedPages(request.isChecked);
+        break;
     }
   });
 
